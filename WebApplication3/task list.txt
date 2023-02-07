@@ -1,0 +1,17 @@
+﻿Finished -
+TBA *
+
+
+- Registration Form 
+- Perform password complexity checks. (Min 12 chars, Use combination of lower-case, upper-case, Numbers and special characters)
+- Offer feedback to user on STRONG password
+
+- Encryption of customer data (encrypt data in database)
+* Decryption of customer data (display in homepage) (NOT YET DONE)
+
+- Able to login to system after registration.
+- Perform proper and safe logout (Clear session and redirect to login page)
+* Redirect to homepage after successful credential verification. Home page displays the user info including encrypted data.
+
+- Implement Google reCaptcha v3 service (I think)
+- Implement custom 404 error page

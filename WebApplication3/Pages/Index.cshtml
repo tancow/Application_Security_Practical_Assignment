@@ -1,10 +1,32 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
+
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core" target="_blank>building Web apps with ASP.NET Core</a>.</p>
+    
+    @{
+        @foreach (var info in Model.UserDetails)
+
+        //if (User != null)
+        {
+            <p>Name ->@info.FullName</p>
+            <p>Credit card -> @info.CreditCard</p>
+            <p>Gender -> @info.Gender</p>
+            <p>Phone No. -> @info.PhoneNumber</p>
+            <p>Delivery Address -> @info.DeliveryAddress</p>
+            <p>Email address->@info.Email</p>
+            <p>Password -> @info.Password</p>
+            <p>About me -> @info.AboutMe</p>
+        }
+
+    }
+    
 </div>

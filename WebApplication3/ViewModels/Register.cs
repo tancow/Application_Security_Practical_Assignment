@@ -8,12 +8,12 @@ namespace WebApplication3.ViewModels
 
         [Required]
         [DataType(DataType.Text)]
-        public string FullName { get; set; }
+        public string FullName { get; set; } = string.Empty;
 
 
         [Required]
         [DataType(DataType.CreditCard)]
-        public string CreditCard { get; set; }
+        public string CreditCard { get; set; } = string.Empty;
 
 
         [Required, MaxLength(1)]
@@ -21,36 +21,36 @@ namespace WebApplication3.ViewModels
 
         [Required]
         [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
 
         [Required]
         [DataType(DataType.Text)]
-        public string DeliveryAddress { get; set; }
+        public string DeliveryAddress { get; set; } = string.Empty;
 
 
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
 
         [Required]
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Password and confirmation password does not match")]
-        public string ConfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; } = string.Empty;
 
 
         [MaxLength(50)]
-        public string? ImageURL { get; set; }
+        public string ImageURL { get; set; } = string.Empty;
 
 
-        [DataType(DataType.MultilineText)]
-        public string? AboutMe { get; set; }
+        [DataType(DataType.Text)]
+        public string AboutMe { get; set; } = string.Empty;
 
     }
 }

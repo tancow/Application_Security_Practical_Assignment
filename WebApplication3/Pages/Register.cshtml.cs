@@ -17,6 +17,7 @@ namespace WebApplication3.Pages
         public Register RModel { get; set; }
         public IFormFile? Upload { get; set; }
 
+
         public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IWebHostEnvironment environment)
         {
             this.userManager = userManager;
@@ -37,7 +38,7 @@ namespace WebApplication3.Pages
             {
                 var user = new IdentityUser()
                 {
-                    UserName = RModel.Email,
+                    UserName = RModel.FullName,
                     Email = RModel.Email
                 };
                 var result = await userManager.CreateAsync(user, RModel.Password);

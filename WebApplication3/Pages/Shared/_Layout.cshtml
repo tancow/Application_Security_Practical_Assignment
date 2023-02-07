@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,24 +26,48 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
                     </ul>
                 </div>
-                <div>
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
-                        </li>
+
+                <div class="account-options">
+                    <ul class="navbar-nav">
+                        @{
+                            if (SignInManager.IsSignedIn(User))
+                            {
+                                    <div>
+                                    <ul class="navbar-nav flex-grow-1">
+                                        <li>
+                                            <p>Welcome <br> @User.Identity.Name</p>
+                                        </li> 
+
+                                        <li>
+                                            <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                    </div>
+                            }
+                            else
+                            {
+                                    <div>
+                                        <ul class="navbar-nav flex-grow-1">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            }
+                        }
                     </ul>
-                </div>
+                </div> 
+                
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -48,7 +76,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - WebApplication3 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2023 - Fresh Farm Market</>
         </div>
     </footer>
 
@@ -59,3 +87,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
